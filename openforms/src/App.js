@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import Container from "./components/container.js"
+import FormHeader from "./components/FormHeader.js"
+import AddQuestionButton from "./components/AddQuestionButton.js"
+import {useState} from 'react';
 
 function App() {
+  const q = [{"title": "unititled question", "key":1, "q_type": "text", "options":[]}]
+
+  const [questions, Setquestions] = useState(q)
+  
+  function AddQuestion(){
+    Setquestions([...questions, {"title":"untitled question", "id": questions.length+1, "q_type": "text"}])
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+        <div>
+          <FormHeader/>
+          {
+        questions.map((q)=>(
+          <Container id={q.id} Setquestions={Setquestions} questions={questions} key={q.key}/>
+        ))
+        }
+        </div>
+        <AddQuestionButton onClick={AddQuestion}/>        
+    </>
+  )
 }
 
 export default App;
