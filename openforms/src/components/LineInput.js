@@ -1,9 +1,9 @@
 import "./component.css";
 
-const LineInput = ({default_text="", style}) =>{
+const LineInput = ({default_text="", style, onChange}) =>{
     return (
         <>
-        <input className={style?"line_input":"line_input "+style} type="text" placeholder={default_text}> 
+        <input onChange={(e)=>(onChange(e))} className="line_input" style={style} type="text" placeholder={default_text}> 
         </input>
         </>
     )

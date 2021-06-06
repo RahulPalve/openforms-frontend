@@ -1,19 +1,41 @@
 import "./component.css";
-import {useState} from 'react';
+import LineInput from "./LineInput.js";
+import QTypeSelector from "./QTypeSelector.js";
+import Options from "./Options.js";
+import { FormContext } from "../contexts/FormContext.js"
 
-const Question = ({q_type, OnOptionChange}) =>{
-    const [options, Setoptions] = useState(["option one"])
-    if(q_type=="text")
-        return null;
-        
-    return (<>
-        <ul>
-        {   
-            options.map((option)=>(<li>{option}</li>))
-        }
-        </ul>
-        <button onClick={()=>{Setoptions([...options, "option two"])}}>Add Option</button>
-        </>
+import {useContext} from 'react';
+
+const Question = ({id}) =>{
+    const [form, SetForm] = useContext(FormContext);
+
+    let currentQuestionIndex = form.findIndex(q=> q.id === id);
+
+    return (
+
+        <div className="container">
+            <QTypeSelector
+            onChange={ 
+                (e)=>{
+                    const qs = [...form];
+                    qs[currentQuestionIndex].q_type = e.target.value;
+                    SetForm(qs);
+                }
+            }
+            />
+
+            <LineInput
+            onChange={
+                (e)=>{
+                    form[currentQuestionIndex].q_type = e.target.value;
+                    SetForm(form);
+                }
+            }
+            default_text={form[currentQuestionIndex].title}
+            />  
+            <Options key={id} q_id={currentQuestionIndex}/>
+
+        </div>
     )
 }
 export default Question;

@@ -1,10 +1,10 @@
 import "./component.css";
 
-const QTypeSelector = ({OnQTypeChange}) =>{
+const QTypeSelector = ({onChange}) =>{
 
     return (
         <>
-        <select onChange={(e) => {OnQTypeChange(e)}} className="selector" name="q_type" id="q_type">
+        <select onChange={(e) => {onChange(e)}} className="selector" name="q_type" id="q_type">
         <option value="text">Text</option>
         <option value="checkbox">Checkbox</option>
         <option value="dropdown">Dropdown</option>
