@@ -16,24 +16,26 @@ const Options = ({ q_id}) => {
 
     const addOption=()=>{
         var newform = [...form]
-        newform[currentQuestionIndex].options = [...form[currentQuestionIndex].options, { "id": form[currentQuestionIndex].options.length+1, "text": "option one" }];
+        newform[currentQuestionIndex].options = [...form[currentQuestionIndex].options, { "id": form[currentQuestionIndex].options.length+1, "text": "untitled option" }];
         SetForm(newform)
     }
 
     const deleteOption=(e,id)=>{
-        var newform = [...form]
+        const newform = [...form]
         newform[currentQuestionIndex].options = form[currentQuestionIndex].options.filter(e=>(e.id !== id));
+        // if (newform[currentQuestionIndex].options.length<=0)
+        //     newform[currentQuestionIndex].q_type="text";
         SetForm(newform);
     }
 
     return (
-        <ul>
+        <ol>
             {
                 form[currentQuestionIndex].options.map((option) => (
                     <li key={option.id} >
                         <LineInput 
                         default_text={option.text} 
-                        style={{display:"inline", marginBottom:"2px"}}
+                        style={{display:"inline", marginBottom:"2px", width:"20%"}}
                         onChange={
                             (e)=>{
                                 var f = [...form];
@@ -47,9 +49,9 @@ const Options = ({ q_id}) => {
                     )
                 )
             }
-            <li><button onClick={addOption}>Add Option</button></li>
+            <li style={{listStyle:"none", marginTop: "5px"}}><button className="button-option-add" onClick={addOption}>+</button></li>
 
-        </ul>
+        </ol>
     )
 }
 export default Options;

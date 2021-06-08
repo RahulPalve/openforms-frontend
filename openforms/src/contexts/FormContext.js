@@ -6,7 +6,7 @@ export const FormContext = React.createContext({});
 export const FormContextProvider = (props) => {
 
     const [form, SetForm] = useState(
-        [{"id":1,"title": "unititled question", "q_type": "text", "is_required": true, "options": [{ "id": 1, "text": "option one" }]}]
+        [{"id":1,"title": "unititled question", "q_type": "text", "is_required": true, "options": [{ "id": 1, "text": "untitled option" }]}]
     );
     return (
         <FormContext.Provider value={[form, SetForm]}>

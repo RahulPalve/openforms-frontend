@@ -19,6 +19,8 @@ const Question = ({id}) =>{
                 (e)=>{
                     const qs = [...form];
                     qs[currentQuestionIndex].q_type = e.target.value;
+                    if(e.target.value==="text")
+                        qs[currentQuestionIndex].options=[];
                     SetForm(qs);
                 }
             }
