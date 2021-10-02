@@ -8,8 +8,8 @@ function AddForm() {
   return (
     <>
     <div style={{margin:"0 1cm 0 1cm"}}>
-      <FormHeader head={head} SetHead={SetHead}/>
-      <FormContextProvider>
+      <FormContextProvider head={head}>
+        <FormHeader head={head} SetHead={SetHead}/>
         <QuestionList />
       </FormContextProvider>
       </div>
