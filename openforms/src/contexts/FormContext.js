@@ -26,14 +26,7 @@ export const FormContextProvider = (props) => {
         axios.post('http://127.0.0.1:5000/form/', {
             title: props.head[0],
             description: props.head[1],
-            questions: arr,
-            metadata: {
-                integrations: {
-                    google_sheet_sync: {
-                        sheet_id: "1T2G0L5_jcbsldp1q_SFckvvxx6AGazssx6W6kc2ONgA"
-                    }
-                }
-            }
+            questions: arr
         })
         .then((res)=>alert('Seccess'))
         .catch((err)=>alert(err))
