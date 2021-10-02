@@ -29,7 +29,7 @@ const Question = ({id}) =>{
             <LineInput
             onChange={
                 (e)=>{
-                    form[currentQuestionIndex].q_type = e.target.value;
+                    form[currentQuestionIndex].title = e.target.value;
                     SetForm(form);
                 }
             }

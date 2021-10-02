@@ -12,6 +12,21 @@ body{
 
 }
 
+.submit_button{
+    width: 150px; 
+    height: 45px; 
+    background-color: orange; 
+    cursor: pointer;
+    border-radius: 10px; 
+    color: white; 
+    font-weight: 400; 
+    font-size: 1.25rem;
+}
+
+.submit_button:hover {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0 0);
+  }
+
 .line_input {
     display: block;
     font: inherit;
